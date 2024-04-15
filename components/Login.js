@@ -40,15 +40,15 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 // Calculate responsive padding
-// const responsivePadding = windowWidth * 0.05; // 5% of screen width
+// const windowWidth * 0.05 = windowWidth * 0.05; // 5% of screen width
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: windowWidth * 0.05, // Use responsive padding
-    paddingVertical: windowHeight * 0.05, // Use responsive padding
+    paddingHorizontal: windowWidth * 1, // Use responsive padding
+    paddingVertical: windowHeight * 1,
     backgroundColor: "#F5F5F5",
   },
   title: {
@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontSize: 16,
     fontWeight: "bold",
+    paddingHorizontal: windowWidth * 0.05, // Add responsive horizontal padding
+    paddingVertical: (windowHeight * 0.005) / 2, // Add responsive vertical padding
   },
 });
 
