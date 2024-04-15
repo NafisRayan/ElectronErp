@@ -1,4 +1,3 @@
-// Login.js
 import React from "react";
 import {
   View,
@@ -7,11 +6,14 @@ import {
   Button,
   StyleSheet,
   Dimensions,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 
 const Login = () => {
   return (
     <View style={styles.container}>
+      <Image source={require("../assets/app_logo.png")} style={styles.logo} />
       <Text style={styles.title}>Login</Text>
       <TextInput
         placeholder="Username"
@@ -24,7 +26,12 @@ const Login = () => {
         style={styles.input}
         placeholderTextColor="#999"
       />
-      <Button title="Login" onPress={() => console.log("Login Pressed")} />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => console.log("Login Pressed")}
+      >
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -32,29 +39,54 @@ const Login = () => {
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
+// Calculate responsive padding
+// const responsivePadding = windowWidth * 0.05; // 5% of screen width
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingHorizontal: 20,
-    backgroundColor: "#F5F5F5", // Light background color
+    alignItems: "center",
+    paddingHorizontal: windowWidth * 0.05, // Use responsive padding
+    paddingVertical: windowHeight * 0.05, // Use responsive padding
+    backgroundColor: "#F5F5F5",
   },
   title: {
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 20,
     textAlign: "center",
-    color: "#333", // Dark text for better contrast
+    color: "#333",
   },
   input: {
     height: 40,
-    borderColor: "#CCC", // Lighter border for a modern look
+    borderColor: "#CCC",
     borderWidth: 1,
-    borderRadius: 5, // Rounded corners for a softer look
+    borderRadius: 5,
     marginBottom: 10,
     paddingLeft: 10,
-    backgroundColor: "#FFF", // White background for input fields
-    width: windowWidth * 0.8, // 80% of screen width
+    backgroundColor: "#FFF",
+    width: windowWidth * 0.8,
+  },
+  logo: {
+    width: windowWidth * 0.5,
+    height: windowWidth * 0.5,
+    resizeMode: "contain",
+    marginBottom: 20,
+  },
+  button: {
+    backgroundColor: "#333",
+    padding: 10,
+    borderRadius: 5,
+    width: windowWidth * 0.8,
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+  },
+  buttonText: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
 
